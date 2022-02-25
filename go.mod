@@ -1,4 +1,4 @@
-module questions-rest-api
+module github.com/norby7/questions-rest-api
 
 go 1.17
 

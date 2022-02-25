@@ -17,11 +17,11 @@ package http
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/norby7/questions-rest-api/entities"
+	"github.com/norby7/questions-rest-api/usecases/service"
 	"log"
 	"net/http"
 	"path"
-	"questions-rest-api/entities"
-	"questions-rest-api/usecases/service"
 	"strconv"
 )
 

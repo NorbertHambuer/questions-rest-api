@@ -2,11 +2,11 @@ package http
 
 import (
 	"fmt"
+	"github.com/norby7/questions-rest-api/entities"
 	"io/ioutil"
 	"log"
 	"net/http/httptest"
 	"os"
-	"questions-rest-api/entities"
 	"strings"
 	"testing"
 )

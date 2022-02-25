@@ -1,6 +1,6 @@
 package repository
 
-import "questions-rest-api/entities"
+import "github.com/norby7/questions-rest-api/entities"
 
 type Repository interface {
 	Add(entities.Question) error

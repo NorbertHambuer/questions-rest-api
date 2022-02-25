@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"github.com/DATA-DOG/go-sqlmock"
-	"questions-rest-api/entities"
+	"github.com/norby7/questions-rest-api/entities"
 	"testing"
 )
 

@@ -1,6 +1,6 @@
 package service
 
-import "questions-rest-api/entities"
+import "github.com/norby7/questions-rest-api/entities"
 
 type Interactor interface {
 	Create(entities.Question) error

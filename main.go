@@ -2,12 +2,12 @@ package main
 
 import (
 	"github.com/gorilla/mux"
+	httpController "github.com/norby7/questions-rest-api/interfaceAdapters/http"
+	httpServer "github.com/norby7/questions-rest-api/server/http"
+	"github.com/norby7/questions-rest-api/usecases/repository"
+	ucService "github.com/norby7/questions-rest-api/usecases/service"
 	"log"
 	"os"
-	httpController "questions-rest-api/interfaceAdapters/http"
-	httpServer "questions-rest-api/server/http"
-	"questions-rest-api/usecases/repository"
-	ucService "questions-rest-api/usecases/service"
 	"strconv"
 )
 

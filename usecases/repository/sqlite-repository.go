@@ -5,9 +5,9 @@ import (
 	"errors"
 	"fmt"
 	_ "github.com/mattn/go-sqlite3"
+	"github.com/norby7/questions-rest-api/entities"
 	"io/ioutil"
 	"os"
-	"questions-rest-api/entities"
 )
 
 type SqliteRepository struct {

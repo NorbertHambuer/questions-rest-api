@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"github.com/go-openapi/runtime/middleware"
 	"github.com/gorilla/mux"
+	hc "github.com/norby7/questions-rest-api/interfaceAdapters/http"
 	"log"
 	"net/http"
 	"os"
 	"os/signal"
-	hc "questions-rest-api/interfaceAdapters/http"
 	"strconv"
 	"time"
 )

@@ -3,7 +3,7 @@ package service
 import (
 	"errors"
 	"fmt"
-	"questions-rest-api/entities"
+	"github.com/norby7/questions-rest-api/entities"
 	"testing"
 )
 
