@@ -1,0 +1,148 @@
+basePath: /question
+consumes:
+- application/json
+definitions:
+  Option:
+    description: |-
+      Option defines the structure for the option object
+      swagger: model
+    properties:
+      body:
+        description: body content for this option, representing one possible answer
+          for a question
+        minimum: 1
+        type: string
+        x-go-name: Body
+      correct:
+        description: boolean that represents if this options is the correct one
+        type: boolean
+        x-go-name: Correct
+    required:
+    - body
+    - correct
+    type: object
+    x-go-package: questions-rest-api/entities
+  Question:
+    description: |-
+      Question defines the structure for the question object
+      swagger: model
+    properties:
+      body:
+        description: the actual question content
+        minimum: 10
+        type: string
+        x-go-name: Body
+      options:
+        description: list of possible answers
+        items:
+          $ref: '#/definitions/Option'
+        minimum: 2
+        type: array
+        x-go-name: Options
+    required:
+    - body
+    - options
+    type: object
+    x-go-package: questions-rest-api/entities
+info:
+  description: Documentation for Question API
+  title: classification of Question REST API
+  version: 1.0.0
+paths:
+  /question:
+    post:
+      description: Creates a new question in the database and then returns it in the
+        response
+      operationId: Add
+      parameters:
+      - description: |-
+          Question object used for Add or Update
+          Note: the ID field is ignored by add operations
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/Question'
+      responses:
+        "200":
+          $ref: '#/responses/questionResponse'
+        "422":
+          $ref: '#/responses/errorResponse'
+        "500":
+          $ref: '#/responses/errorResponse'
+      tags:
+      - question
+  /question/{id}:
+    delete:
+      description: Deletes a question
+      operationId: Delete
+      responses:
+        "200":
+          $ref: '#/responses/noContent'
+        "400":
+          $ref: '#/responses/errorResponse'
+        "500":
+          $ref: '#/responses/errorResponse'
+      tags:
+      - question
+    put:
+      description: Updates an existing question and returns the updated question in
+        the response
+      operationId: Update
+      parameters:
+      - description: |-
+          Question object used for Add or Update
+          Note: the ID field is ignored by add operations
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/Question'
+      responses:
+        "200":
+          $ref: '#/responses/noContent'
+        "422":
+          $ref: '#/responses/errorResponse'
+        "500":
+          $ref: '#/responses/errorResponse'
+      tags:
+      - question
+  /questions:
+    get:
+      description: Returns a list of all questions in the database
+      operationId: GetAll
+      responses:
+        "200":
+          $ref: '#/responses/questionsListResponse'
+        "500":
+          $ref: '#/responses/errorResponse'
+      tags:
+      - questions
+produces:
+- application/json
+responses:
+  errorResponse:
+    description: Generic error message response
+    headers:
+      message:
+        type: string
+  noContent:
+    description: ""
+  questionResponse:
+    description: Data structure representing a single question
+    headers:
+      Body:
+        description: |-
+          A single question object
+          in body:
+    schema:
+      $ref: '#/definitions/Question'
+  questionsListResponse:
+    description: Data structure representing a list of users
+    schema:
+      items:
+        $ref: '#/definitions/Question'
+      type: array
+schemes:
+- http
+swagger: "2.0"
